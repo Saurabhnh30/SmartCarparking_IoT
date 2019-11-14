@@ -1,0 +1,78 @@
+int out1 = 2;
+int out2 = 3;
+int out3 = 4;
+
+
+void setup() 
+{
+ Serial.begin(9600);
+ 
+ pinMode(A0, INPUT);
+ pinMode(out1, OUTPUT);
+ 
+ pinMode(A1, INPUT);
+ pinMode(out2, OUTPUT);
+
+ pinMode(A2, INPUT);
+ pinMode(out3, OUTPUT);
+
+
+
+}
+
+void loop() 
+{
+  int detect1 = digitalRead(A0); 
+  int detect2 = digitalRead(A1);
+  int detect3 = digitalRead(A2);  
+  
+  if(detect1 == LOW)// IR 1
+  {
+    Serial.println("Obastacle on the way 1 "); 
+   digitalWrite(out1,0);
+  }
+  else
+  {
+    Serial.println("All clear 1");
+     digitalWrite(out1,1);  
+  }
+  delay(300);
+
+   if(detect2 == LOW)// IR 2
+  {
+    Serial.println("Obastacle on the way 2 "); 
+   digitalWrite(out2,0);
+  }
+  else
+  {
+    Serial.println("All clear 2");
+     digitalWrite(out2,1);  
+  }
+  delay(300);
+
+   if(detect3 == LOW)// IR 3
+  {
+    Serial.println("Obastacle on the way 3 "); 
+   digitalWrite(out3,0);
+  }
+  else
+  {
+    Serial.println("All clear 3");
+     digitalWrite(out3,1);  
+  }
+  delay(300);
+
+ 
+
+**************************************************
+#include <LiquidCrystal.h>
+
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+void setup() {
+  lcd.begin(16, 2);
+  lcd.print("Sampurna");
+}
+
+void loop() {}  
+}
